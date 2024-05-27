@@ -1,6 +1,6 @@
 # Ecommerce-Microservice-App
 
-This repo contains a codes that implements and deploys ecommerce microservices to a kubernetes minikube cluster. 
+This repository contains code to implement and deploy e-commerce microservices to a Kubernetes Minikube cluster.
 
 ## Ecommerce app architecture
-![shop app architecture](/Ecommerce-Microservice-App/app_architecture.jpg)
+![shop app architecture](/app_architecture.jpg)
