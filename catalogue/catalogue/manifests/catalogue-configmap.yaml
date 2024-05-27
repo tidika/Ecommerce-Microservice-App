@@ -1,0 +1,10 @@
+# ConfigMap to expose configuration related to backend application
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: catalogue-conf # name of configMap
+data:
+  server-host: 172.18.90.47
+  server-port: "30002"
+  server-uri: "http://172.18.90.47:30002" # enternal ip of backend application 'Service'
+

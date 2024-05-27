@@ -1,0 +1,62 @@
+# Define 'Service' to expose FrontEnd Application
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-app
+spec:
+  selector:
+    app: frontend-app
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 3000
+    targetPort: 3000
+    nodePort: 30000
+  type: NodePort 
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app
+  labels: 
+    app: frontend-app
+    tier: frontend
+spec:
+  replicas: 1  
+  selector:
+    matchLabels: 
+      app: frontend-app
+      tier: frontend
+  template:
+    metadata:
+      labels: 
+        app: frontend-app
+        tier: frontend  
+    spec:                 
+      containers: 
+      - name: frontend-app 
+        image: tochi2022/front-end-app:11 
+        env: 
+          -  name: CATALOGUE_URL 
+             valueFrom:
+               configMapKeyRef:
+                 name: catalogue-conf 
+                 key: server-uri
+          -  name: CATALOGUE_HOST 
+             valueFrom:
+               configMapKeyRef:
+                 name: catalogue-conf 
+                 key: server-host
+          -  name: CATALOGUE_PORT
+             valueFrom:
+               configMapKeyRef:
+                 name: catalogue-conf 
+                 key: server-port
+          -  name: CART_URL 
+             valueFrom:
+               configMapKeyRef:
+                 name: cart-conf 
+                 key: server-uri
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,57 @@
+# Define 'Service' to expose backend application deployment
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue-app  
+spec:
+  selector:  # backend application pod lables should match these
+    app: catalogue-app
+    tier: backend
+  ports:
+  - protocol: "TCP"
+    port: 3002
+    targetPort: 3002
+    nodePort: 30002
+  type: NodePort   # use NodePort, if you are not running Kubernetes on cloud
+---
+# Configure 'Deployment' of backend application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogue-app
+  labels: 
+    app: catalogue-app
+    tier: backend
+spec:
+  replicas: 1    # Number of replicas of back-end application to be deployed
+  selector:
+    matchLabels: # backend application pod labels should match these
+      app: catalogue-app
+      tier: backend
+  template:
+    metadata:
+      labels: # Must macth 'Service' and 'Deployment' labels
+        app: catalogue-app
+        tier: backend  
+    spec:                 
+      containers: 
+      - name: catalogue-app 
+        image: tochi2022/catalogue-app:11   # docker image of backend application 
+        env:   # Setting Enviornmental Variables
+          - name: DB_HOST   # Setting Database host address from configMap
+            valueFrom: 
+              configMapKeyRef:
+                name: db-conf  # name of configMap
+                key: host
+          - name: DB_NAME  # Setting Database name from configMap
+            valueFrom:
+              configMapKeyRef:
+                name: db-conf 
+                key: name
+          - name: DB_ROOT_PASSWORD # Setting Database password from Secret
+            valueFrom:
+              secretKeyRef:
+                name: db-root-credentials
+                key: password 
+        ports:
+        - containerPort: 3002
