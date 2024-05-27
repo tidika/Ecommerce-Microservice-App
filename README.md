@@ -16,9 +16,9 @@ You can find the installation steps [here](https://nodejs.org/en/download/packag
 Use docker to build image for each microservice and upload it to an image registry such as dockerhub. 
 
 ### set up kubernetes minikube cluster on your local machine
-a. Install a hypervisor such as hyper-v, virtualbox etc
-b. Install minikube 
-c. Install kubectl a command line for accessing the minikube. 
+- Install a hypervisor such as hyper-v, virtualbox etc
+- Install minikube 
+- Install kubectl a command line for accessing the minikube. 
 
 Step by step guide on how to go about these installations can be found in the [official kubernetes documentation page](https://kubernetes.io/docs/tasks/tools/). 
 
