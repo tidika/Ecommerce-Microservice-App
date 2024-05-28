@@ -5,7 +5,7 @@ This repository contains code to implement and deploy e-commerce microservices t
 ## Ecommerce app architecture
 ![shop app architecture](/images/app_architecture.jpg)
 
-
+<!-- Add a blank line here -->
 ## Prerequisites
 The followings are prerequisites to completing the steps in this microservice deployment:
 
@@ -22,7 +22,7 @@ Use docker to build image for each microservice and upload it to an image regist
 
 Step by step guide on how to go about these installations can be found in the [official kubernetes documentation page](https://kubernetes.io/docs/tasks/tools/). 
 
-
+<!-- Add a blank line here -->
 ## Deployment
 To deploy the manifests, follow the below sequence to ensure smooth deployment.
 
@@ -34,4 +34,5 @@ To deploy the manifests, follow the below sequence to ensure smooth deployment.
 
 ## Running Application
 If the deployment is successful, you would see a running app as shown below. 
+<!-- Add a blank line here -->
 ![deployed Ecommerce App](/images/running_app.png)
