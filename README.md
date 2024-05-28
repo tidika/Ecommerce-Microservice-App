@@ -3,7 +3,7 @@
 This repository contains code to implement and deploy e-commerce microservices to a Kubernetes Minikube cluster. The goal of this readme is to show how to deploy microservices contained in this repo to a minikube cluster. 
 
 ## Ecommerce app architecture
-![shop app architecture](/app_architecture.jpg)
+![shop app architecture](/images/app_architecture.jpg)
 
 
 ## Prerequisites
@@ -24,3 +24,14 @@ Step by step guide on how to go about these installations can be found in the [o
 
 
 ## Deployment
+To deploy the manifests, follow the below sequence to ensure smooth deployment.
+
+1. Deploy [MySQL manifests](/catalogue/mysql/manifests) files since its essential for the entire application and operates independently of any microservice
+2. Deploy [catalogue manifests](/catalogue/catalogue/manifests) and confirm it communicates successfully with the MySQL database using "/getTestProducts" endpoint. 
+3. Deploy [cart manifests](/cart/manifests). This ensures the carts configmap is already deployed before deploying the frontend manifest which requires information from both the cart and catalogue configmaps. 
+4. Finally deploy the [frontend manifest](/front-end/manifests). 
+
+
+## Running Application
+If the deployment is successful, you would see a running app as shown below. 
+![deployed Ecommerce App](/images/running_app.jpg)
