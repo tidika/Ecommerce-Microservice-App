@@ -34,4 +34,4 @@ To deploy the manifests, follow the below sequence to ensure smooth deployment.
 
 ## Running Application
 If the deployment is successful, you would see a running app as shown below. 
-![deployed Ecommerce App](/images/running_app.jpg)
+![deployed Ecommerce App](/images/running_app.png)
