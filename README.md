@@ -3,7 +3,7 @@
 This repository contains code to implement and deploy e-commerce microservices to a Kubernetes Minikube cluster. The goal of this readme is to show how to deploy microservices contained in this repo to a minikube cluster. 
 
 ## Ecommerce app architecture
-![shop app architecture](/images/app_architecture.jpg)
+![shop app architecture](/images/app_architecture.png)
 
 <!-- Add a blank line here -->
 ## Prerequisites
