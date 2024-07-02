@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: cart-app  
 spec:
-  selector:  # backend application pod lables should match these
+  selector:  
     app: cart-app
     tier: backend
   ports:
@@ -12,7 +12,7 @@ spec:
     port: 3003
     targetPort: 3003
     nodePort: 30003
-  type: NodePort   # use NodePort, if you are not running Kubernetes on cloud
+  type: NodePort  
 ---
 # Configure 'Deployment' of backend application
 apiVersion: apps/v1
@@ -23,19 +23,19 @@ metadata:
     app: cart-app
     tier: backend
 spec:
-  replicas: 1    # Number of replicas of back-end application to be deployed
+  replicas: 1   
   selector:
-    matchLabels: # backend application pod labels should match these
+    matchLabels:
       app: cart-app
       tier: backend
   template:
     metadata:
-      labels: # Must macth 'Service' and 'Deployment' labels
+      labels: 
         app: cart-app
         tier: backend  
     spec:                 
       containers: 
       - name: cart-app 
-        image: tochi2022/cart-app:2.0   # docker image of backend application 
+        image: tochi2022/cart-app:2.0  
         ports:
         - containerPort: 3003

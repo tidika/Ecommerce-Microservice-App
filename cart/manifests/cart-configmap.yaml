@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: cart-conf # name of configMap
 data:
-  server-host: 172.18.90.47
+  server-host: 172.25.25.153
   server-port: "30003"
-  server-uri: "http://172.18.90.47:30003" # enternal ip of backend application 'Service'
+  server-uri: "http://172.25.25.153:30003"
   

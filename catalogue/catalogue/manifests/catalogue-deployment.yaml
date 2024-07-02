@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: catalogue-app  
 spec:
-  selector:  # backend application pod lables should match these
+  selector: 
     app: catalogue-app
     tier: backend
   ports:
@@ -12,7 +12,7 @@ spec:
     port: 3002
     targetPort: 3002
     nodePort: 30002
-  type: NodePort   # use NodePort, if you are not running Kubernetes on cloud
+  type: NodePort 
 ---
 # Configure 'Deployment' of backend application
 apiVersion: apps/v1
@@ -23,9 +23,9 @@ metadata:
     app: catalogue-app
     tier: backend
 spec:
-  replicas: 1    # Number of replicas of back-end application to be deployed
+  replicas: 1   
   selector:
-    matchLabels: # backend application pod labels should match these
+    matchLabels: 
       app: catalogue-app
       tier: backend
   template:
@@ -36,8 +36,8 @@ spec:
     spec:                 
       containers: 
       - name: catalogue-app 
-        image: tochi2022/catalogue-app:11   # docker image of backend application 
-        env:   # Setting Enviornmental Variables
+        image: tochi2022/catalogue-app:11   
+        env:   
           - name: DB_HOST   # Setting Database host address from configMap
             valueFrom: 
               configMapKeyRef:

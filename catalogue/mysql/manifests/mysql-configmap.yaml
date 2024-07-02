@@ -4,5 +4,5 @@ kind: ConfigMap
 metadata:
   name: db-conf  # name of ConfigMap, referenced in other files
 data:
-  host: mysql   # host address of mysql server, we are using DNS of Service
+  host: mysql  
   name: shop # name of the database for application
