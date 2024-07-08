@@ -9,7 +9,7 @@ This repository contains code to implement and deploy e-commerce microservices t
 ## Prerequisites
 The following are prerequisites to completing the steps in this microservice deployment:
 
-### Install node in your environment and add it to path. 
+### Install node in your system and add the node path to your system environment variable. 
 You can find the installation steps [here](https://nodejs.org/en/download/package-manager). 
 
 ### Package the application 
